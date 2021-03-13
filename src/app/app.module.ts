@@ -7,6 +7,7 @@ import { MainLayoutComponent } from './shared/components/main-layout/main-layout
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { PostPageComponent } from './components/post-page/post-page.component';
+import { AdminLayoutComponent } from './admin/shared/components/admin-layout/admin-layout.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +15,12 @@ import { PostPageComponent } from './components/post-page/post-page.component';
     MainLayoutComponent,
     NavBarComponent,
     HomePageComponent,
-    PostPageComponent
+    PostPageComponent,
+    AdminLayoutComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
