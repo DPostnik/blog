@@ -7,6 +7,8 @@ import {CreatePageComponent} from "./shared/components/create-page/create-page.c
 import {DashboardPageComponent} from "./shared/components/dashboard-page/dashboard-page.component";
 import {EditPageComponent} from "./shared/components/edit-page/edit-page.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {SharedModule} from "../shared/shared.module";
+import {AuthService} from "../shared/services/auth.service";
 
 @NgModule({
   declarations:[
@@ -19,6 +21,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
   imports: [
     CommonModule,
     FormsModule,
+    SharedModule,
     RouterModule.forChild([
         {
           path: '', component: AdminLayoutComponent, children: [
@@ -35,6 +38,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
   ],
   exports: [
     RouterModule
+  ],
+  providers:[
+    AuthService
   ]
 })
 
