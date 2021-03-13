@@ -3,6 +3,8 @@ import {Injectable} from "@angular/core";
 import {User} from "../interfaces/interfaces";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {environment} from "../../../environments/environment";
+import {tap} from "rxjs/operators";
 
 @Injectable()
 
@@ -15,7 +17,10 @@ export class AuthService {
     }
 
     login(user: User): Observable<any> {
-      return this.http.post('',user);
+      return this.http.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.apiKey}`,user)
+        .pipe(
+          tap(this.setToken)
+        )
     }
 
     isAuthentificated(): boolean{
@@ -26,7 +31,7 @@ export class AuthService {
 
     }
 
-    private setToken() {
-
+    private setToken(response) {
+      console.log(response);
     }
 }
