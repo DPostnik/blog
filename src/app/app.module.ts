@@ -7,7 +7,6 @@ import { MainLayoutComponent } from './shared/components/main-layout/main-layout
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { PostPageComponent } from './components/post-page/post-page.component';
-import { AdminLayoutComponent } from './admin/shared/components/admin-layout/admin-layout.component';
 import { PostComponent } from './components/post/post.component';
 
 @NgModule({
@@ -17,7 +16,6 @@ import { PostComponent } from './components/post/post.component';
     NavBarComponent,
     HomePageComponent,
     PostPageComponent,
-    AdminLayoutComponent,
     PostComponent
   ],
   imports: [

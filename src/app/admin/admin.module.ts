@@ -6,23 +6,32 @@ import {LoginPageComponent} from "./shared/components/login-page/login-page.comp
 import {CreatePageComponent} from "./shared/components/create-page/create-page.component";
 import {DashboardPageComponent} from "./shared/components/dashboard-page/dashboard-page.component";
 import {EditPageComponent} from "./shared/components/edit-page/edit-page.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
-  declarations:[],
-  imports:[
+  declarations:[
+    LoginPageComponent,
+    CreatePageComponent,
+    DashboardPageComponent,
+    EditPageComponent,
+    AdminLayoutComponent
+  ],
+  imports: [
     CommonModule,
+    FormsModule,
     RouterModule.forChild([
         {
-          path:'', component: AdminLayoutComponent, children: [
-            { path: '', redirectTo: '/admin/login', pathMatch: 'full' },
-            { path: 'login', component: LoginPageComponent },
-            { path: 'create', component: CreatePageComponent },
-            { path: 'dashboard', component: DashboardPageComponent },
-            { path:'post/:id/edit', component: EditPageComponent }
+          path: '', component: AdminLayoutComponent, children: [
+            {path: '', redirectTo: '/admin/login', pathMatch: 'full'},
+            {path: 'login', component: LoginPageComponent},
+            {path: 'create', component: CreatePageComponent},
+            {path: 'dashboard', component: DashboardPageComponent},
+            {path: 'post/:id/edit', component: EditPageComponent}
           ]
         }
       ]
-    )
+    ),
+    ReactiveFormsModule
   ],
   exports: [
     RouterModule
