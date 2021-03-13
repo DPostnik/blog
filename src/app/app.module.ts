@@ -8,6 +8,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { PostPageComponent } from './components/post-page/post-page.component';
 import { AdminLayoutComponent } from './admin/shared/components/admin-layout/admin-layout.component';
+import { PostComponent } from './components/post/post.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AdminLayoutComponent } from './admin/shared/components/admin-layout/adm
     NavBarComponent,
     HomePageComponent,
     PostPageComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
