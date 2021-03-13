@@ -14,6 +14,7 @@ import {Router} from "@angular/router";
 export class LoginPageComponent implements OnInit {
 
   form: FormGroup;
+  loading :boolean = false;
 
   constructor(private auth: AuthService,
               private router: Router) { }
@@ -28,6 +29,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   submit() {
+    this.loading = true;
     if(this.form.invalid)
     {
       return;
@@ -44,6 +46,7 @@ export class LoginPageComponent implements OnInit {
       {
         this.form.reset();
         this.router.navigate(['/admin','dashboard']);
+        this.loading = false;
       }
     )
 
