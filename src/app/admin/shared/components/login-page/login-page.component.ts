@@ -3,7 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 // @ts-ignore
 import {User} from "../../../../shared/interfaces/interfaces";
 import {AuthService} from "../../../../shared/services/auth.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 
 
 @Component({
@@ -12,16 +12,24 @@ import {Router} from "@angular/router";
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent implements OnInit {
-
+  message: string = '';
   form: FormGroup;
   loaded: boolean = true;
 
   constructor(
               public auth: AuthService,
-              private router: Router
+              private router: Router,
+              private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(
+      ( params: Params)=> {
+        if(params['loginAgain']){
+          this.message = "Введите данные ещё раз";
+        }
+      }
+    )
     this.form = new FormGroup(
       {
         email: new FormControl(null, [Validators.required, Validators.email]),

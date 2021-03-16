@@ -40,11 +40,11 @@ export class AuthService {
         switch(message)
         {
           case `EMAIL_NOT_FOUND`: {
-            this.error$.next('Incorrect email!');
+            this.error$.next('Неверный email, попробуйте ещё раз');
             break;
           }
           case `INVALID_PASSWORD`: {
-            this.error$.next('Incorrect password!');
+            this.error$.next('Неверный пароль, попробуйте ещё раз');
             break;
           }
         }
