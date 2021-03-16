@@ -4,3 +4,20 @@ export interface User
   password: string;
   returnSecureToken: boolean;
 }
+
+export interface Post{
+  id?: number;
+  text: string;
+  author: string;
+  title: string;
+  date: Date;
+}
+
+export interface FbAuthResponse {
+  idToken: string
+  expiresIn: number;
+}
+
+export interface FbCreateResponse{
+  name: string
+}

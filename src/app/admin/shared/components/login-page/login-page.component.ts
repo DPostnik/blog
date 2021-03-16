@@ -54,7 +54,6 @@ export class LoginPageComponent implements OnInit {
         this.router.navigate(['/admin','dashboard']);
         this.loaded = true;
       },
-
       () =>{
         this.loaded = true
     }

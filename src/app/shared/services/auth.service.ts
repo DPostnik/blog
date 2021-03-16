@@ -1,11 +1,10 @@
 import {Injectable} from "@angular/core";
 // @ts-ignore
-import {User} from "../interfaces/interfaces";
+import {FbAuthResponse, User} from "../interfaces/interfaces";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {Observable, Subject, throwError} from "rxjs";
 import {environment} from "../../../environments/environment";
 import {catchError, tap} from "rxjs/operators";
-import {FbAuthResponse} from "../../../environments/interfaces";
 
 @Injectable()
 

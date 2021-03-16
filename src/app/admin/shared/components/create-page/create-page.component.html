@@ -1,1 +1,29 @@
-<p>create-page works!</p>
+<form class = "card" [formGroup]="form" (ngSubmit)="submit()">
+
+  <div class="form-control">
+    <label for="author">Автор поста:</label>
+    <input type="text" id="author" formControlName="author">
+<!--    <div-->
+<!--      *ngIf="form.get('name').touched && form.get('email').invalid"-->
+<!--      class="validation">-->
+<!--      <small *ngIf="form.get('name').errors.required">Введите автора</small>-->
+<!--    </div>-->
+  </div>
+
+  <div class="form-control">
+    <label for="title">Заголовок поста:</label>
+    <input type="text" id="title" formControlName="title">
+<!--    <div-->
+<!--      *ngIf="form.get('title').touched && form.get('title').invalid"-->
+<!--      class="validation">-->
+<!--      <small *ngIf="form.get('title').errors.required">Введите заголовок</small>-->
+<!--    </div>-->
+  </div>
+
+  <div class="form-control">
+    <label>Контент поста</label>
+    <quill-editor formControlName="text"></quill-editor>
+  </div>
+
+  <input class="btn btn-dark" type="submit" [disabled]="form.invalid">
+</form>
