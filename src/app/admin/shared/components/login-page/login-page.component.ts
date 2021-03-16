@@ -14,10 +14,12 @@ import {Router} from "@angular/router";
 export class LoginPageComponent implements OnInit {
 
   form: FormGroup;
-  loading :boolean = false;
+  loaded: boolean = true;
 
-  constructor(private auth: AuthService,
-              private router: Router) { }
+  constructor(
+              public auth: AuthService,
+              private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.form = new FormGroup(
@@ -29,26 +31,25 @@ export class LoginPageComponent implements OnInit {
   }
 
   submit() {
-    this.loading = true;
-    if(this.form.invalid)
-    {
+    if(this.form.invalid) {
       return;
     }
+    this.loaded = false;
 
-    const user: User =
-      {
+    const user: User = {
         email: this.form.value.email,
         password: this.form.value.password
       }
-    console.log(user);
 
-    this.auth.login(user).subscribe( () =>
-      {
+    this.auth.login(user).subscribe( () => {
         this.form.reset();
         this.router.navigate(['/admin','dashboard']);
-        this.loading = false;
-      }
-    )
+        this.loaded = true;
+      },
 
+      () =>{
+        this.loaded = true
+    }
+    )
   }
 }
