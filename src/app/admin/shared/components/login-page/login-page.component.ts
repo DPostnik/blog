@@ -28,6 +28,9 @@ export class LoginPageComponent implements OnInit {
         if(params['loginAgain']){
           this.message = "Введите данные ещё раз";
         }
+        if(params['authFailed']) {
+          this.message ="Время сессии истекло, введите данные ещё раз";
+        }
       }
     )
     this.form = new FormGroup(
